@@ -2,7 +2,7 @@
 	<v-app>
 		<sidebar></sidebar>
 		<main>
-			<section class="page">
+			<section class="content">
 				<v-fade-transition mode="out-in">
 					<router-view></router-view>
 				</v-fade-transition>
