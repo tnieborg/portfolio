@@ -15,8 +15,8 @@ import sidebar from'@/components/sidebar';
 
 export default {
 	components: {
-			sidebar,
-		},
+		sidebar,
+	},
 	name: 'app',
 
 	data () {
@@ -26,5 +26,24 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+	.navigation-drawer {
+		padding: 0;
+	}
+	.application {
+		&--wrap {
+			flex-direction: row;
+		}
+	}
+
+	.titles {
+		display: flex;
+		justify-content: center;
+		margin-top: 50px;
+		color: white;
+		font-size: 48px;
+		font-weight: 900;
+	}
+
+
 </style>
