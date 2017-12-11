@@ -1,5 +1,5 @@
 <template>
-	<div class="content-bg--home">
+	<div class="content-bg--home" @click.native="emit">
 		<h1 class="titles" @click="works">{{ msg }}</h1>
 		<p class="intro">Welcome to this small website about me, what I do and what I have done :D</p>
 	</div>
@@ -16,6 +16,9 @@ export default {
 	methods: {
 		works: function() {
 			alert("WHAT DID YOU EXPECT?!")
+		},
+		emit: function() {
+			this.$emit('minimize');
 		}
 	},
 }
@@ -25,9 +28,13 @@ export default {
 <style lang="scss">
 	.content-bg--home {
 		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-image: url('../images/space-bg.jpg');
+		top: 0;
+		right: 0;
+		left: 5%;
+		bottom:0;
+		background-image: url(/static/img/abstract-bg.de26123.jpg);
+		background-position: 100% 50%;
+		background-size: 100% 100%;
 	}
 
 </style>

@@ -1,7 +1,6 @@
 <template>
-	<v-navigation-drawer app dark class="sidebar" :mini-variant="mini">
 		<v-app>
-			<v-navigation-drawer permanent dark :mini-variant.sync="mini">
+			<v-navigation-drawer persistent app permanent dark :mini-variant.sync="mini" enable-resize-watcher>
 				<v-toolbar flat class="transparent">
 					<v-list class="pa-0">
 						<v-list-tile avatar>
@@ -12,8 +11,8 @@
 								<v-list-tile-title>{{ title }}</v-list-tile-title>
 							</v-list-tile-content>
 							<v-list-tile-action>
-								<v-btn icon @click.native.stop="mini = !mini">
-									<v-icon>chevron_left</v-icon>
+								<v-btn icon @click.native.stop="mini = !mini" @minimize.native="mini = true">
+									<v-icon>close</v-icon>
 								</v-btn>
 							</v-list-tile-action>
 						</v-list-tile>
@@ -22,7 +21,7 @@
 
 				<v-list class="pt-0" dense>
 					<v-divider></v-divider>
-					<v-list-tile v-for="item in navitems" :key="item.title" @click="">
+					<v-list-tile v-for="item in navitems" :key="item.title" @click.native.stop="mini = true">
 						<v-list-tile-action>
 							<router-link class="navbar__link" :to="item.href"><v-icon>{{ item.icon }}</v-icon></router-link>
 						</v-list-tile-action>
@@ -33,7 +32,6 @@
 				</v-list>
 			</v-navigation-drawer>
 		</v-app>
-	</v-navigation-drawer>
 </template>
 
 <script>
@@ -49,7 +47,7 @@
 						title: 'About me', icon: 'account_box', href: '/about'
 					}
 				],
-				mini: true,
+				mini: null,
 				right: null
 			}
 		}
